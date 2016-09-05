@@ -1,0 +1,21 @@
+Description:
+
+This driver adds Kerberos support to Roundcube's password plugin, allowing you
+to change Kerberos passwords from Roundcube. Currently, only one realm is supported.
+
+Requirements:
+
+- PHP 5
+- PECL krb5 module (revision 339939 or newer)
+- Roundcube (tested on version 1.1.5)
+
+Installation:
+
+- Copy krb5.php to /usr/share/roundcube/plugins/password/drivers (may be distro-specific)
+- Enable password plugin in Roundcube
+- Configure the password plugin according to Roundcube's documenation, but with
+  the following modifications.
+
+  In /etc/roundcube/plugins/password/config.inc.php:
+  $config['password_driver'] = 'krb5';
+  $config['krb5_realm'] = 'ATHENA.MIT.EDU'; // set to your realm
